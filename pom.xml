@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.xname.appname</groupId>
-	<artifactId>platform</artifactId>
+	<artifactId>JavaSpringBootTemplate</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Rest Template</name>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>1.7</java.version>
 		<checkstyle.config.location>${basedir}/config/checkstyle/checkstyle.xml</checkstyle.config.location>
 		<coverage.instruction.min>0.3</coverage.instruction.min>
 		<coverage.complexity.min>0.3</coverage.complexity.min>
