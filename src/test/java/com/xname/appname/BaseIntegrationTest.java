@@ -26,6 +26,10 @@ import com.jayway.restassured.response.Response;
 import com.jayway.restassured.specification.RequestSpecification;
 import com.xname.appname.Main;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class BaseIntegrationTest.
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Main.class)
 @IntegrationTest("server.port=0") 
@@ -33,31 +37,59 @@ import com.xname.appname.Main;
 @ActiveProfiles("integrationtest")
 public class BaseIntegrationTest {
 
+	/** The Constant LOGGER. */
 	private static final Logger LOGGER = LoggerFactory.getLogger(BaseIntegrationTest.class);
 	
+	/** The Constant baseURI. */
 	private static final String baseURI = "http://localhost";
+	
+	/** The print to console. */
 	protected Printer printToConsole = new Printer();
 	
+    /** The port. */
     @Value("${local.server.port}")   // 6
     protected int port;
 	
+    /** The object mapper. */
     @Autowired
     protected ObjectMapper objectMapper;
     
+	/**
+	 * _set up.
+	 */
 	@Before
 	public void _setUp() {
 		RestAssured.baseURI = baseURI;
 		RestAssured.port = port;
 	}
 	
+	/**
+	 * Gets the absolute url.
+	 *
+	 * @param relativeUrl the relative url
+	 * @return the absolute url
+	 */
 	protected String getAbsoluteUrl(String relativeUrl) {
 		return String.format("%s:%d%s", baseURI, port, relativeUrl);
 	}
 	
+	/**
+	 * Api.
+	 *
+	 * @param relativeUrl the relative url
+	 * @return the string
+	 */
 	protected String api(String relativeUrl) {
 		return String.format("%s:%d/v0/api%s", baseURI, port, relativeUrl);
 	}
 	
+	/**
+	 * Login.
+	 *
+	 * @param username the username
+	 * @param password the password
+	 * @return the request specification
+	 */
 	protected RequestSpecification login(String username, String password) {
 		Response response = 
 			given()
@@ -72,6 +104,14 @@ public class BaseIntegrationTest {
 		return spec;
 	}
 
+	/**
+	 * As json.
+	 *
+	 * @param key the key
+	 * @param firstValue the first value
+	 * @param keyValuePairs the key value pairs
+	 * @return the string
+	 */
 	private String asJson(String key, String firstValue, String ... keyValuePairs) {
 		if (keyValuePairs != null && keyValuePairs.length % 2 != 0) {
 			throw new IllegalArgumentException("Odd number of key value pairs");

@@ -7,7 +7,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Rest Template</name>
 	<properties>
-		<java.version>1.7</java.version>
+		<java.version>1.8</java.version>
 		<checkstyle.config.location>${basedir}/config/checkstyle/checkstyle.xml</checkstyle.config.location>
 		<coverage.instruction.min>0.3</coverage.instruction.min>
 		<coverage.complexity.min>0.3</coverage.complexity.min>
@@ -40,13 +40,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
-		
-		<!--  ADD THE BELOW PLUGIN ONLY IF YOU USING ANY DB STUFF  -->
-		<!-- <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency> -->
-		
+
+		<!-- ADD THE BELOW PLUGIN ONLY IF YOU USING ANY DB STUFF -->
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-data-jpa</artifactId> 
+			</dependency> -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-freemarker</artifactId>
@@ -77,11 +75,8 @@
 			<artifactId>joda-time</artifactId>
 		</dependency>
 		<!-- So that joda time instances can be saved to database using hibernate -->
-		<dependency>
-			<groupId>org.jadira.usertype</groupId>
-			<artifactId>usertype.core</artifactId>
-			<version>3.2.0.GA</version>
-		</dependency>
+		<!-- <dependency> <groupId>org.jadira.usertype</groupId> <artifactId>usertype.core</artifactId> 
+			<version>3.2.0.GA</version> </dependency> -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-joda</artifactId>
@@ -94,15 +89,15 @@
 			<version>2.4</version>
 		</dependency>
 		<dependency>
+			<groupId>com.mangofactory</groupId>
+			<artifactId>swagger-springmvc</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
 			<groupId>com.jayway.restassured</groupId>
 			<artifactId>rest-assured</artifactId>
 			<version>2.3.2</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.mangofactory</groupId>
-			<artifactId>swagger-springmvc</artifactId>
-			<version>1.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.ebaysf.web</groupId>
@@ -114,7 +109,34 @@
 			<artifactId>janino</artifactId>
 			<version>2.5.16</version>
 		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-access</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-ext</artifactId>
+			<version>1.7.10</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+		</dependency>
 
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>2.3.7</version>
+		</dependency>
+		
 	</dependencies>
 	<build>
 		<plugins>
@@ -144,7 +166,7 @@
 							<enableFilesSummary>true</enableFilesSummary>
 						</configuration>
 						<goals>
-<!-- 							<goal>check</goal> -->
+							<!-- <goal>check</goal> -->
 						</goals>
 					</execution>
 				</executions>
@@ -182,8 +204,8 @@
 						<id>post-unit-test</id>
 						<phase>test</phase>
 						<goals>
-<!-- 							<goal>report</goal> -->
-<!-- 							<goal>check</goal> -->
+							<!-- <goal>report</goal> -->
+							<!-- <goal>check</goal> -->
 						</goals>
 						<configuration>
 							<rules>

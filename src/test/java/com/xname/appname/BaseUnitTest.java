@@ -11,14 +11,25 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.client.response.DefaultResponseCreator;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class BaseUnitTest.
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = TestConfiguration.class)
 @ActiveProfiles("test")
 public class BaseUnitTest {
 
+	/** The loader. */
 	@Autowired
 	private ResourceLoader loader;
 	
+	/**
+	 * With json.
+	 *
+	 * @param jsonFile the json file
+	 * @return the default response creator
+	 */
 	public DefaultResponseCreator withJson(String jsonFile) {
 		return withSuccess(loader.getResource(jsonFile), MediaType.APPLICATION_JSON);
 	}

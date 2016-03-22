@@ -2,31 +2,45 @@ package com.xname.appname;
 
 import org.slf4j.MDC;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LogUtil.
+ */
 public class LogUtil {
 
+	/**
+	 * The Enum SERVICE.
+	 */
 	public static enum SERVICE {
-		UPLOAD, DOWNLOAD,UPLOAD_TO_EXAMSOFT
-	};
 
-	public static enum KEYS {
-		EXAMID, API, RESPONSE
+		/** The upload. */
+		UPLOAD,
+		/** The download. */
+		DOWNLOAD
 	};
 
 	/**
-	 * Sets the log environment variables. These are env (win/mac), service
-	 * (upload/download) and soap api.
-	 * 
-	 * @param env
-	 * @param srv
-	 * @param api
+	 * The Enum KEYS.
 	 */
-	//OVERRIDE THIS TO YOUR NEEDS
-	/*public static void setEnvironment(OperatingSystem env, SERVICE srv, String api) {
-		MDC.put("SERVICE", srv.toString());
-		MDC.put("ENV", env.toString());
-		MDC.put("API", api);
-	}*/
+	public static enum KEYS {
 
+		/** The examid. */
+		EXAMID,
+		/** The api. */
+		API,
+		/** The response. */
+		RESPONSE
+	};
+
+	/**
+	 * Sets the log environment variables.
+	 */
+	// OVERRIDE THIS TO YOUR NEEDS
+	/*
+	 * public static void setEnvironment(OperatingSystem env, SERVICE srv,
+	 * String api) { MDC.put("SERVICE", srv.toString()); MDC.put("ENV",
+	 * env.toString()); MDC.put("API", api); }
+	 */
 
 	public static void clear() {
 		MDC.clear();
@@ -34,9 +48,11 @@ public class LogUtil {
 
 	/**
 	 * Can add the context for the logger here.
-	 * 
+	 *
 	 * @param key
+	 *            the key
 	 * @param value
+	 *            the value
 	 */
 	public static void putContext(KEYS key, String value) {
 		MDC.put(key.toString(), value);
@@ -44,8 +60,9 @@ public class LogUtil {
 
 	/**
 	 * Remove the log context.
-	 * 
+	 *
 	 * @param key
+	 *            the key
 	 */
 	public static void removeContext(KEYS key) {
 		MDC.remove(key.toString());

@@ -57,9 +57,8 @@
 		</encoder>
 	</appender>
 
-	<root level="info">
+	<root level="${log_level}">
 		<appender-ref ref="FILE" />
 		<appender-ref ref="STDOUT" />
-		<appender-ref ref="${exception_capture_appender_name}" />
 	</root>
 </configuration>
